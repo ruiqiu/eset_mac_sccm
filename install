@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Rui Qiu’s ESET Script
+
+# Find the absolute script current path
+path=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+# Copy config file and installer to the tmp folder
+cp $path/esets_setup.sh /tmp
+cp $path/esets_remote_install.pkg /tmp
+
+# Run Installer
+
+/usr/sbin/installer -dumplog -verbose -pkg /tmp/esets_remote_install.pkg -target /
+
+
+exit 0
